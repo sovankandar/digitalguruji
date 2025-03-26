@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP Server Tester</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="main-container">
+      <div class="title-container">
+        <h1>MCP Server Tester</h1>
+        <div class="title-underline"></div>
+      </div>
+  
+      <div class="container">
+        <div class="form-group">
+          <label for="mcpUrl">MCP Server URL:</label>
+          <input type="text" id="mcpUrl" placeholder="https://your-mcp-server.com">
+        </div>
+  
+        <div class="form-group">
+          <label for="installationCode">Installation Code (from marketplace):</label>
+          <input type="text" id="installationCode" placeholder="Paste installation code here">
+          <p class="info-text">
+            Need an example? Try testing with public MCP servers from <a href="https://smithery.ai/" target="_blank">Smithery Marketplace</a>
+          </p>
+        </div>
+  
+        <div class="form-group">
+          <label for="testInput">Test Input (JSON):</label>
+          <textarea id="testInput" placeholder='{"prompt": "Your test input here"}'></textarea>
+        </div>
+  
+        <div class="toggle-container">
+          <label class="toggle">
+            <input type="checkbox" id="advancedMode">
+            <span class="slider"></span>
+          </label>
+          <span>Advanced Mode</span>
+        </div>
+  
+        <div id="advancedOptions" style="display: none; margin-top: 1rem;">
+          <div class="form-group">
+            <label for="timeout">Timeout (ms):</label>
+            <input type="number" id="timeout" value="10000" min="1000" step="1000">
+          </div>
+  
+          <div class="form-group">
+            <label for="headers">Custom Headers (JSON):</label>
+            <textarea id="headers" placeholder='{"Content-Type": "application/json"}'></textarea>
+          </div>
+        </div>
+      </div>
+  
+      <button id="testButton" onclick="testMCP()">Test MCP Server</button>
+  
+      <div class="results" id="results" style="display: none;">
+        <h2>Test Results</h2>
+  
+        <div class="result-section">
+          <div class="result-title server-status">
+            <span id="connectionStatusIcon" class="status-icon">⏳</span>
+            <span>Connection Status: <span id="connectionStatus">Testing...</span></span>
+          </div>
+          <div id="pingDetails"></div>
+          <pre id="pingResult"></pre>
+        </div>
+  
+        <div class="result-section">
+          <div class="result-title server-status">
+            <span id="functionalityStatusIcon" class="status-icon">⏳</span>
+            <span>Functionality Test: <span id="functionalityStatus">Testing...</span></span>
+          </div>
+          <div id="testDetails"></div>
+          <pre id="testResult"></pre>
+        </div>
+      </div>
+    </div>
+
+  <script src="../js/script.js"></script>
+</body>
+</html>
