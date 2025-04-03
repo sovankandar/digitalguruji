@@ -104,9 +104,7 @@
     button.textContent = 'Testing...';
 
     try {
-      // For demonstration purposes, we'll simulate a fetch request
-      // In a real application, uncomment the fetch code below
-      /*
+   
       const response = await fetch('http://localhost:3019/test-mcp', {
         method: 'POST',
         headers: {
@@ -124,7 +122,7 @@
       if (!response.ok) {
         throw data;
       }
-      */
+   
 
       // Simulate a successful response for demonstration
       await new Promise(resolve => setTimeout(resolve, 2000));
